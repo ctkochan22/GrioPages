@@ -4,8 +4,12 @@ $(document).ready(function(){
   Display.list_listener();
 })
 
+//SEARCH IIFE
+//Handles all actions that deal with searching
 var Search = (function(){
   return{
+
+    //*Places listener on Search Form
     form_listener: function(){
       $("#search_container").on("submit", "#search_form", function(event){
         event.preventDefault();
@@ -14,6 +18,9 @@ var Search = (function(){
       })
     },
 
+    //*Makes an AJAX request to search#find
+    //Input: string -- serialized data of search form input
+    //Return: NONE -- Expects an html template of results
     request_search: function(formData){
       var ajaxFind =
         $.ajax({
@@ -28,14 +35,19 @@ var Search = (function(){
       })
     },
 
+    //Takes html template and injects into left container
     html_results: function(responsePackage){
       $("#results_container").html(responsePackage);
     }
   }
 }())
 
+//DISPLAY IIFE Module
+//Handles all things to do with diplaying contact
 var Display = (function(){
   return {
+
+    //Places listener on names of search results
     list_listener: function(){
       $("#results_container").on("click", "a", function(event){
         event.preventDefault();
@@ -43,6 +55,10 @@ var Display = (function(){
         Display.request_contact_template(contact_id);
       })
     },
+
+    //Makes an AJAX request to search#display
+    //Input: string -- id associated with name
+    //Return: NONE -- Expects an html template of contact
     request_contact_template: function(id){
       var packageData = {id: id};
       var ajaxDisplay =
@@ -57,6 +73,8 @@ var Display = (function(){
         Display.html_contact(response);
       })
     },
+
+    //Takes Contact html template, injects into container
     html_contact: function(responsePackage){
       $("#show_container").html(responsePackage);
     }
