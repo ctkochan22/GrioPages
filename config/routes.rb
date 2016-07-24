@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'search/index'
   post 'search/find'
+  post 'serach/display'
 
   root 'search#index'
   # The priority is based upon order of creation: first created -> highest priority.

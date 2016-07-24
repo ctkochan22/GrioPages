@@ -19,4 +19,7 @@ class SearchController < ApplicationController
 
     render :file => "/search/_results.html.erb", layout: false
   end
+
+  def display
+  end
 end
