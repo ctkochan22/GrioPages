@@ -21,5 +21,8 @@ class SearchController < ApplicationController
   end
 
   def display
+    contact_id = params["id"].to_i
+    @contact = Contact.find_by(id: contact_id)
+    render :file => "/search/_contact.html.erb", layout: false
   end
 end

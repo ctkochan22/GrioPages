@@ -40,7 +40,7 @@ var Display = (function(){
       $("#results_container").on("click", "a", function(event){
         event.preventDefault();
         var contact_id = $(this).attr("data-id");
-
+        Display.request_contact_template(contact_id);
       })
     },
     request_contact_template: function(id){
