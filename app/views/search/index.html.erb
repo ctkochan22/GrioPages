@@ -1,4 +1,4 @@
-<header>
+<!-- <header>
   <h2>GrioPages</h2>
   <div id="search_container">
     <form id="search_form">
@@ -6,14 +6,32 @@
       <input type="submit" value="Submit">
     </form>
   </div>
+
 </header>
+ -->
+<nav class="navbar navbar-default" id="navbar">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <a class="navbar-brand" id="logo">GrioPages</a>
+    </div>
+
+    <div id="search_container">
+      <form class="navbar-form navbar-left" role="search" id="search_form">
+        <!-- <div class="form-group"> -->
+          <input type="text" class="form-control" placeholder="Name, Address, Phone" name="search">
+        <!-- </div> -->
+        <button type="submit" class="btn btn-default">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
 
 <div id="message_container">
 </div>
 
-
-<div id="results_container">
+<div id="results_container" class="col-sm-6">
 </div>
 
-<div id="show_container">
+<div id="show_container" class="col-sm-6">
 </div>

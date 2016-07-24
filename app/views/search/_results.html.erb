@@ -1,7 +1,7 @@
-<div id="list-container">
+<div id="list-container" class="list-group">
   <ul id="name-list">
     <% @results.each do |contact| %>
-      <li><a data-id=<%= "#{contact.id}" %> href="#"><%= contact.name %></a></li>
+      <li class="list-group-item"><a data-id=<%= "#{contact.id}" %> href="#"><%= contact.name %></a></li>
     <% end %>
   </ul>
 </div>
