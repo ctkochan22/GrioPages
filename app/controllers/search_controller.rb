@@ -3,5 +3,7 @@ class SearchController < ApplicationController
   end
 
   def find
+    search_term = params["search"]
+
   end
 end

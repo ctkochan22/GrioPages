@@ -9,6 +9,7 @@ var Search = (function(){
       $("#search_container").on("submit", "#search_form", function(event){
         event.preventDefault();
         var formData = $("input[name='search']").serialize();
+        Search.request_search(formData);
       })
     },
     request_search: function(formData){
@@ -16,7 +17,7 @@ var Search = (function(){
         $.ajax({
           type: "POST",
           url: "search/find",
-          data: "formData",
+          data: formData,
           dataType: "HTML"
         });
 
