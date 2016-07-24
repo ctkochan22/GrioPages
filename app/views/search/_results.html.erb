@@ -1,0 +1,7 @@
+<div id="results-container">
+  <ul id="name-list">
+    <% @results.each do |contact| %>
+      <li><a data-id=<%= "#{contact.id}" %>><%= contact.name %></a></li>
+    <% end %>
+  </ul>
+</div>
