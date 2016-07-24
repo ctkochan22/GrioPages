@@ -54,8 +54,11 @@ var Display = (function(){
         });
 
       ajaxDisplay.done(function(response){
-        console.log(response);
+        Display.html_contact(response);
       })
+    },
+    html_contact: function(responsePackage){
+      $("#show_container").html(responsePackage);
     }
   };
 }())
