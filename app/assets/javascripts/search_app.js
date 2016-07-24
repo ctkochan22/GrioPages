@@ -40,12 +40,25 @@ var Display = (function(){
       $("#results_container").on("click", "a", function(event){
         event.preventDefault();
         var contact_id = $(this).attr("data-id");
-
+        Display.request_contact_template(contact_id);
       })
     },
-    request_contact: function(id){
-      var pacakgeData = {id: id};
-      var ajax
+    request_contact_template: function(id){
+      var packageData = {id: id};
+      var ajaxDisplay =
+        $.ajax({
+          type: "POST",
+          url: "search/display",
+          data: packageData,
+          dataType: "HTML"
+        });
+
+      ajaxDisplay.done(function(response){
+        Display.html_contact(response);
+      })
+    },
+    html_contact: function(responsePackage){
+      $("#show_container").html(responsePackage);
     }
   };
 }())
