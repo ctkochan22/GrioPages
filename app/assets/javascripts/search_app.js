@@ -43,9 +43,19 @@ var Display = (function(){
 
       })
     },
-    request_contact: function(id){
-      var pacakgeData = {id: id};
-      var ajax
+    request_contact_template: function(id){
+      var packageData = {id: id};
+      var ajaxDisplay =
+        $.ajax({
+          type: "POST",
+          url: "search/display",
+          data: packageData,
+          dataType: "HTML"
+        });
+
+      ajaxDisplay.done(function(response){
+        console.log(response);
+      })
     }
   };
 }())
