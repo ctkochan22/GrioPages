@@ -17,6 +17,9 @@
 #results_container {
   float: left;
   width: 40%;
+  height: 500px;
+  overflow: scroll;
+  border: 2px dotted red;
 }
 
 #show_container {
