@@ -1,6 +1,7 @@
 $(document).ready(function(){
   console.log("Connected");
   Search.form_listener();
+  Display.list_listener();
 })
 
 var Search = (function(){
@@ -31,4 +32,20 @@ var Search = (function(){
       $("#results_container").html(responsePackage);
     }
   }
+}())
+
+var Display = (function(){
+  return {
+    list_listener: function(){
+      $("#results_container").on("click", "a", function(event){
+        event.preventDefault();
+        var contact_id = $(this).attr("data-id");
+
+      })
+    },
+    request_contact: function(id){
+      var pacakgeData = {id: id};
+      var ajax
+    }
+  };
 }())
