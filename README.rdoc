@@ -1,27 +1,39 @@
-== README
+= GrioPages
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+===Synopsis
+GrioPages is a simple one-page app that allows users to query the database, searching by name, address, or phone numbers.
 
-Things you may want to cover:
 
-* Ruby version
+===How to Use
+GrioPages is a very simple application. It contains a search bar that allows you to search by name, address, or phone number. Simply type in a search result, and it will query the database and present the results on the left. Then you can click any of the names to see contact information.
 
-* System dependencies
 
-* Configuration
+===How To Install
+GrioPages is a simple rails app that is easy to get running. 
+To start, you can set up and seed the database.
+  $bundle install
+  $rake db:create
+  $rake db:migrate
+  $rake db:seed
+  
+Then you can simply type the code below to start a local server
+  $rails s
 
-* Database creation
 
-* Database initialization
+===Challenges
+====Multiple Input Search
+GrioPages' search bar allows users to search by a range of search terms. Simply querying each column with the search term will not only take an inefficient amount of time, but will also return results that are diluted and not as relevant. For example, if user searches "Dooley", it will return a lot of results that are not as relevant because the search term matched with cities and streets. 
 
-* How to run the test suite
+Solution: There are many ways to make querying the database more efficient. I chose to analyze the search term to determine what kind of search the application should do. 
+  - If the search term did not contain letters and only numbers, I only made a query by phone number. 
+  - If the search term only contained letters, I only made a query to the name column. 
+  - For all other search terms, I only searched the street address. 
 
-* Services (job queues, cache servers, search engines, etc.)
+Drawbacks: Unfortunately, this severely limits the way the user can search for information. This segmentation does not allow users to search by address with just the street name, or the city, or the state. I defend this system, however, because I made the assumption that users should not be able to search and look at the information of strangers. 
 
-* Deployment instructions
 
-* ...
+
+
 
 
 Please feel free to use a different markup language if you do not plan to run
