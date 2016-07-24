@@ -12,6 +12,7 @@ var Search = (function(){
         Search.request_search(formData);
       })
     },
+
     request_search: function(formData){
       var ajaxFind =
         $.ajax({
@@ -22,8 +23,12 @@ var Search = (function(){
         });
 
       ajaxFind.done(function(response){
-        console.log(response);
+        Search.html_results(response);
       })
+    },
+
+    html_results: function(responsePackage){
+      $("#results_container").html(responsePackage);
     }
   }
 }())

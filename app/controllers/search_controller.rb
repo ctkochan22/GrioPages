@@ -16,6 +16,7 @@ class SearchController < ApplicationController
       puts("search line1 and line2")
       @results = Contact.where("line1 REGEXP :search OR line2 REGEXP :search", search: search_term)
     end
-    puts @results
+
+    render :file => "/search/_results.html.erb", layout: false
   end
 end
