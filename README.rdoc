@@ -19,7 +19,20 @@ To start, you can set up and seed the database.
 Then you can simply type the code below to start a local server
   $rails s
 
+===Logic Walkthrough
+GrioPages is a simple page application that only needed three routes with some jQuery to keep it one-page. 
 
+  
+====Server-side
+There are only three routes: Search #index, #find, and #display.
+    #find- Takes a search term and queries the database based on input(refer to "challenge section). It renders an html template that creates a list, as it iterates throught the results. 
+    #display- Takes an id for a record in the Contact table and renders an appropriate html template. 
+
+  
+====Client-side
+The jQuery logic is broken into two IIFE modules: Search module and Display module. Both modules hold the form listener, makes the ajax call to Search#find route, and injects the html template it receives. 
+
+  
 ===Challenges
 ====Multiple Input Search
 GrioPages' search bar allows users to search by a range of search terms. Simply querying each column with the search term will not only take an inefficient amount of time, but will also return results that are diluted and not as relevant. For example, if user searches "Dooley", it will return a lot of results that are not as relevant because the search term matched with cities and streets. 
